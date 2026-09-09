@@ -1,0 +1,2 @@
+class Boletum < ApplicationRecord
+end

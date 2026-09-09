@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @boletum %>
+
+<div>
+  <%= link_to "Edit this boletum", edit_boletum_path(@boletum) %> |
+  <%= link_to "Back to boleta", boleta_path %>
+
+  <%= button_to "Destroy this boletum", @boletum, method: :delete %>
+</div>

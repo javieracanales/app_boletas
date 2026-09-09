@@ -1,0 +1,17 @@
+<h1>Subir Boleta (Procesamiento con IA)</h1>
+
+<p>Sube tu boleta en PDF, JPG o PNG. La Inteligencia Artificial extraerá los datos automáticamente.</p>
+
+<%= form_with(url: procesar_boletas_path, multipart: true, data: { turbo: false }) do |form| %>
+  <div style="margin-bottom: 20px;">
+    <%= form.label :documento, "Selecciona tu boleta:" %><br>
+    <%= form.file_field :documento, accept: "application/pdf, image/png, image/jpeg", required: true %>
+  </div>
+
+  <div>
+    <%= form.submit "Procesar con IA", style: "padding: 10px 15px; background: #000; color: #fff; cursor: pointer;" %>
+  </div>
+<% end %>
+
+<br>
+<%= link_to "Volver a la lista", boletas_path %>

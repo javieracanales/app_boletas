@@ -1,0 +1,25 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Boletas" %>
+
+<h1>Lista de Boletas</h1>
+
+<div id="boleta">
+  <% @boleta.each do |boletum| %>
+    <div>
+      <p>
+        <strong>RUT Emisor:</strong> <%= boletum.rut_emisor %> |
+        <strong>Razón Social:</strong> <%= boletum.razon_social %> |
+        <strong>Folio:</strong> <%= boletum.folio %> |
+        <strong>Total:</strong> $<%= boletum.monto_total %>
+      </p>
+      <p>
+        <%= link_to "Ver detalle", boleta_path(boletum) %>
+      </p>
+    </div>
+    <hr>
+  <% end %>
+</div>
+
+<br>
+<%= link_to "Subir nueva boleta con IA", upload_boletas_path, style: "padding: 10px 15px; background: #000; color: #fff; text-decoration: none; border-radius: 5px;" %>

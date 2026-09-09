@@ -1,0 +1,11 @@
+<% content_for :title, "New boletum" %>
+
+<h1>New boletum</h1>
+
+<%= render "form", boletum: @boletum %>
+
+<br>
+
+<div>
+  <%= link_to "Volver a la lista", boletas_path %>
+</div>

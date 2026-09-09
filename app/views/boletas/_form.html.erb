@@ -1,0 +1,51 @@
+<%= form_with(model: boletum, url: boletas_path) do |form| %>
+  <% if boletum.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(boletum.errors.count, "error") %> prohibited this boletum from being saved:</h2>
+
+      <ul>
+        <% boletum.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :rut_emisor, style: "display: block" %>
+    <%= form.text_field :rut_emisor %>
+  </div>
+
+  <div>
+    <%= form.label :razon_social, style: "display: block" %>
+    <%= form.text_field :razon_social %>
+  </div>
+
+  <div>
+    <%= form.label :folio, style: "display: block" %>
+    <%= form.text_field :folio %>
+  </div>
+
+  <div>
+    <%= form.label :fecha_emision, style: "display: block" %>
+    <%= form.date_field :fecha_emision %>
+  </div>
+
+  <div>
+    <%= form.label :monto_total, style: "display: block" %>
+    <%= form.number_field :monto_total %>
+  </div>
+
+  <div>
+    <%= form.label :documento, style: "display: block" %>
+    <%= form.file_field :documento %>
+    <% if boletum.documento.attached? && boletum.documento.blob&.persisted? %>
+      <%= form.hidden_field :documento, value: boletum.documento.blob.signed_id %>
+      <p style="color: green;">✓ Documento procesado y adjunto</p>
+    <% end %>
+  </div>
+  
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,12 @@
+<% content_for :title, "Editing boletum" %>
+
+<h1>Editing boletum</h1>
+
+<%= render "form", boletum: @boletum %>
+
+<br>
+
+<div>
+  <%= link_to "Show this boletum", @boletum %> |
+  <%= link_to "Back to boleta", boleta_path %>
+</div>
