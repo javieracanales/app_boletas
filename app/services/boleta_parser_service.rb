@@ -7,13 +7,14 @@ class BoletaParserService
   def initialize(file_path, mime_type)
     @file_path = file_path
     @mime_type = mime_type
-    @api_key = ENV['GEMINI_API_KEY']
+    @api_key = ENV['GEMINI_API_KEY'] 
   end
-
+ 
   def call
     file_data = Base64.strict_encode64(File.read(@file_path))
 
-    url = URI("https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=#{@api_key}")
+    # VOLVEMOS AL MODELO QUE SÍ TE FUNCIONABA: gemini-2.5-flash
+    url = URI("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=#{@api_key}")
     http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true
 
